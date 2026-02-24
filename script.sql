@@ -74,3 +74,6 @@ CONSTRAINT fk_items_service foreign key (idOIService) REFERENCES ServiceReferenc
 
 desc OrderItems;
 
+ALTER TABLE ServiceOrder 
+ADD COLUMN idOrderMechanic INT,
+ADD CONSTRAINT fk_order_mechanic FOREIGN KEY (idOrderMechanic) REFERENCES Mechanics(idMechanic);
