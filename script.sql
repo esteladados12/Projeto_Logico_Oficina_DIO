@@ -61,7 +61,7 @@ LaborValue FLOAT not null
 desc ServiceReference;
 
 
--- Criar tabela Peças
+-- Criar tabela Itens nos serviços
 CREATE TABLE OrderItems(
 idOIOrder INT,
 idOIService INT not null,
@@ -77,3 +77,14 @@ desc OrderItems;
 ALTER TABLE ServiceOrder 
 ADD COLUMN idOrderMechanic INT,
 ADD CONSTRAINT fk_order_mechanic FOREIGN KEY (idOrderMechanic) REFERENCES Mechanics(idMechanic);
+
+
+-- Criar tabela Peças
+CREATE TABLE Parts(
+idPart INT AUTO_INCREMENT primary key,
+Description VARCHAR (45),
+PartValue FLOAT not null
+);
+
+ALTER TABLE OrderItems
+ADD CONSTRAINT fk_items_part foreign key (idOIPart) references Parts(idPart)
